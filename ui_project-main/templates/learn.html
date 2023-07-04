@@ -1,0 +1,118 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'learn_new.js') }}"
+></script>
+
+<script>
+    let lesson = {{lesson|tojson}}
+    console.log(lesson)
+</script>
+<style>
+    .text1 {
+        text-align: center;
+        font-family: "Montserrat";
+    }
+    .stripe-text {
+        text-align: center;
+        position: relative;
+        text-transform: uppercase;
+        font-family: "Montserrat";
+        font-style: italic;
+        font-size: 40px;
+    }
+    .text-note {
+        font-family: "Montserrat";
+    }
+    .text-note-2 {
+        font-family: "Montserrat";
+        font-size: 12px;
+        color: #606060;
+    }
+    #next_button {
+        margin-left: 20 !important;
+        align-items: center;
+    }
+    #back_button {
+        margin-right: 20 !important;
+        align-items: center;
+    }
+    #pic {
+        text-align: center;
+        width: auto;
+        height: 300px;
+    }
+    #bar {
+        width: 10%;
+        height: 30px;
+        background-color: red;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+    }
+</style>
+<br/>
+<div class="progress" style="height: 30px">
+    <div
+        class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+        id="bar"
+        role="progressbar"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+    >
+        complete
+    </div>
+</div>
+<br />
+<div></div>
+<div class="stripe-text">{{ lesson.title }}</div>
+<!--<div class="stripe-text"> {{ lesson.title }}</div>-->
+<br />
+<div class="text1">
+    <p>
+        <strong style="font: italic 2em Georgia, serif">
+            <div id="text-learn-id"></div
+        ></strong>
+    </p>
+</div>
+<!--<div class="text1"><p><strong style="font: italic 2em Georgia, serif;">{{ lesson.text }}</strong></p></div>
+-->
+    <div id="people_container" class="text1"> </div>
+<div class="text-center">
+    <img id="pic" src="{{url_for('static', filename=lesson.pic)}}" />
+</div>
+<br />
+<div class="text-center">
+    <!-- <button id="back_button">Back</button>
+    <button id="next_button">Next</button> -->
+    <button class="btn btn-outline-danger" id="back_button">Back</button>
+    <button class="btn btn-outline-danger" id="next_button">Next</button>
+</div>
+<br />
+<hr class="my-4" />
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div id="name_entry_container">
+            <div class="jumbotron text-note">
+                Page Notes:
+                <input
+                    id="new_name"
+                    type="text"
+                    placeholder="Got it / No idea"
+                />
+                <div class="text-note-2">
+                    (You can write anything to prepare for your final quiz)
+                </div>
+                <button id="submit_name" class="btn btn-outline-danger btn-sm">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4"></div>
+</div>
+{% endblock %}

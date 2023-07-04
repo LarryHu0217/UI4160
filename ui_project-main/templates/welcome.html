@@ -1,0 +1,81 @@
+{% extends "layout.html" %} {% block content %}
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'learn.js') }}"
+></script>
+<style>
+    body {
+        background-image: url("/static/background.png");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+    #next_button {
+        background-color: white; /* Green */
+        border: none;
+        border-radius: 5px;
+        color: red;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        align-items: center;
+        font-family: "Montserrat";
+    }
+    h1,
+    h2 {
+        color: white;
+        text-align: center;
+        font-family: "Montserrat";
+    }
+    .foot-note {
+        font-family: "Montserrat";
+        color: #909090;
+        font-weight: light;
+        font-size: 12px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+    .alert {
+        width: 600px;
+        margin: 0 auto;
+    }
+</style>
+<body>
+    <div id="container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1>Learn about Chinese Zodiac</h1>
+        <h2>Explore interactive chapters and quizzes</h2>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="text-center">
+            <button id="next_button">Next</button>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="alert alert-light">
+            <div class="foot-note text-center">
+                learn about how to calcualte Chinese zodiac, zodiac personality,
+                and more!
+            </div>
+            <div class="foot-note text-center">
+                Jump to quiz if you are confident about this content.
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

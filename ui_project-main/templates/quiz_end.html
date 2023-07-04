@@ -1,0 +1,47 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'quiz_new.js') }}"
+></script>
+
+<script>
+    let result = {{result|tojson}}
+    console.log("score:", result);
+</script>
+<style>
+    h1,
+    h2,
+    h3 {
+        font-family: "Montserrat";
+    }
+    .text-center {
+        text-align: center;
+    }
+    .congrats{
+        padding-top: 100px;
+        padding-bottom: 400px;
+    }
+</style>
+<br />
+<div class="progress" style="height: 30px">
+    <div
+        class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+        id="progress-bar-id"
+        role="progressbar"
+        style="width: 100%"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+    >
+        complete
+    </div>
+</div>
+
+<h1 class="text-center congrats">
+    Congratulations! you are {{result}} of 8, well done!
+</h1>
+<a class="btn btn-outline-danger" href="/learn/1" role="button">Learn Again</a>
+<a class="btn btn-outline-danger" href="/quiz/1" role="button">Try again</a>
+<a class="btn btn-outline-danger" href="/" role="button">Home</a>
+{% endblock %}

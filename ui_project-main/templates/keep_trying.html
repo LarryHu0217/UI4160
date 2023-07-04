@@ -1,0 +1,66 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'quiz_new.js') }}"
+></script>
+
+<script>
+    let result = {{result|tojson}}
+    console.log(result);
+</script>
+
+<br />
+<div class="progress" style="height: 30px">
+    <div
+        class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+        id="progress-bar-id"
+        role="progressbar"
+        style="width: 100%"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+    >
+        complete
+    </div>
+</div>
+
+<style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Montserrat";
+    }
+</style>
+<br />
+<h3 class="text-center">You get {{result[1]}} of 8,</h3>
+<h5 class="text-center">Quiz {{result[0]}} is incorrect!</h3>
+<h5 class="text-center">keep trying!</h3>
+
+<!-- 把下面display改成show就能看到了，可以用jquery .clone()复制 -->
+<!-- 用for 每个错误的题，在wrong-ans-container 的 div 里 append 一个 clone 的 wrong-ans-class -->
+<!-- 记得每次复制把display改成show才能看见 -->
+<div class="wrong-ans-container">
+    <div class="row wrong-ans-class" id="wrong-ans-id" style="display: none">
+        <hr class="my-4" />
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div>
+                <strong class="quiz-text-class" id="quiz-text-id"></strong>
+            </div>
+            <div id="quiz-selectd-id">
+                You selected the incorrect answer:
+                <mark class="selected"></mark>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<hr class="my-4" />
+<a class="btn btn-outline-danger" href="/learn/1" role="button">Learn Again</a>
+<a class="btn btn-outline-danger" href="/quiz/1" role="button">Try again</a>
+<a class="btn btn-outline-danger" href="/" role="button">Home</a>
+{% endblock %}

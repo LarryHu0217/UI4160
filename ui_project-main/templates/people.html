@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+    
+    <script>
+        let data = {{data|tojson}} 
+        console.log(data)
+    </script>
+
+
+
+    <div id="hello_div"> Hello people! </div>
+    
+    <div id="name_entry_container">
+        name: <input id="new_name"> </input>
+        <button id="submit_name">Submit</button>
+    </div>
+
+    <div id="people_container">
+    </div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,168 @@
+{% extends "layout.html" %} {% block content %}
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'learn_new_7.js') }}"
+></script>
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'js/jquery-1.10.2.min.js') }}"
+></script>
+
+<script>
+    let lesson = {{lesson|tojson}}
+    console.log(lesson)
+</script>
+<style>
+    #next_button {
+        /* background-color: white;
+    border: none;
+    color: red;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; */
+        margin-left: 20 !important;
+        align-items: center;
+    }
+    #back_button {
+        /* background-color: white;
+    border: none;
+    color: red;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; */
+        margin-right: 20 !important;
+        align-items: center;
+    }
+    #pic_personality {
+        width: auto;
+        height: 230px;
+        padding: 10px;
+    }
+    #title {
+        text-align: center;
+        font-family: "Montserrat";
+    }
+    #bar {
+        border-radius: 15px;
+        width: 85.7%;
+        height: 30px;
+        background-color: red;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+    }
+    #name_entry_container {
+        text-align: center;
+        font-family: "Montserrat";
+        color: #606060;
+    }
+</style>
+<br />
+<div class="progress" style="height: 30px">
+    <div
+        class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+        id="bar"
+        role="progressbar"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+    >
+        7 of 8
+    </div>
+</div>
+<br />
+<div></div>
+<h1 id="title">Chinese Zodiac Personality</h1>
+<div class="row">
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/1.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/2.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/3.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/4.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/5.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/6.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/7.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/8.png')}}"
+        />
+    </div>
+
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/9.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/10.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/11.png')}}"
+        />
+    </div>
+    <div class="col-md-2">
+        <img
+            id="pic_personality"
+            src="{{url_for('static', filename='/images/gallery/12.png')}}"
+        />
+    </div>
+</div>
+<br />
+
+<div class="text-center">
+    <button class="btn btn-outline-danger" id="back_button">Back</button>
+    <button class="btn btn-outline-danger" id="next_button">Next</button>
+</div>
+<br />
+<hr />
+<div id="name_entry_container">
+    We will not quiz your Chinese Zodiac Personality. Discover your own
+    personality based on Your Chinese Zodiac!!!
+</div>
+
+{% endblock %}

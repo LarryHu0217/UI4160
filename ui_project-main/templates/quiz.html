@@ -1,0 +1,103 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+    type="text/javascript"
+    src="{{ url_for('static', filename = 'quiz_new.js') }}"
+></script>
+
+<script>
+    let quiz = {{quiz|tojson}}
+    console.log(quiz)
+</script>
+<style>
+    h1,
+    h2,
+    h3 {
+        font-family: "Montserrat";
+    }
+    .quiz-container {
+        margin: 35px;
+    }
+    .alert {
+        margin: 100px;
+    }
+</style>
+
+<br />
+<div class="progress" style="height: 30px">
+    <div
+        class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+        id="progress-bar-id"
+        role="progressbar"
+        aria-valuenow="25"
+        aria-valuemin="0"
+        aria-valuemax="100"
+    >
+        complete
+    </div>
+</div>
+
+<div class="quiz-container">
+    <div class="alert alert-light">
+        <h1>{{ quiz.title }}</h1>
+        <div class="quiz-content m-5 p-2">
+            <h3>{{ quiz.text }}</h3>
+            <div class="pt-3">
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="option1"
+                    autocomplete="off"
+                />
+                <label class="btn btn-outline-danger" for="option1"
+                    >A. {{ quiz.question.a }}</label
+                >
+
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="option2"
+                    autocomplete="off"
+                />
+                <label class="btn btn-outline-danger" for="option2"
+                    >B. {{ quiz.question.b }}</label
+                >
+
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="option3"
+                    autocomplete="off"
+                />
+                <label class="btn btn-outline-danger" for="option3"
+                    >C. {{ quiz.question.c }}</label
+                >
+
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="option4"
+                    autocomplete="off"
+                />
+                <label class="btn btn-outline-danger" for="option4"
+                    >D. {{ quiz.question.d }}</label
+                >
+            </div>
+        </div>
+    </div>
+
+    <div class="text-left">
+        <button class="btn btn-outline-danger btn-lg" id="back_button">
+            Back
+        </button>
+        <button class="btn btn-outline-danger btn-lg" id="next_button">
+            Next
+        </button>
+    </div>
+</div>
+
+{% endblock %}
